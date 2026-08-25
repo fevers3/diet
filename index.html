@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="체중여정">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAE/klEQVR4nO3dPXITWRSGYZmagJ8icU1AAFUsgIhiH2xjljTbmH1MEbEDEiInLmxCgqZsjVufptXd5/e+T2hbUrvv2+fKRsJXf75/ewBOeRZ9AMiLOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckP6IPgA8+vr3x/kHP/z1xf9IJlf8FwzhTjYx518JcURamMUxz0R4zhFmRRmrb7UOccTYssZufRBHgO2r69MHcXjba10d+iAOV/uuqHUfxAGJOPxYXOimw4M4IBEHJOJwYjf/7e6ZOCARByTigEQckIgDEnFAIg4ndi/Ssbtn4viP6zfX0YeQCHE8msqgjwfE4cdi/pu+pJQ4fjseGAyPCXEcDqdqMOpj3wvd+pXoxOFtrxV1eI8CccghYbe5bF9Xn3evjB7H+QJy9uH2vqbR4wi0bo093/E29NshFw6Gm+83pofBe2XTuWjLsO5jku1d9vwXDIkEdnDSoM85Ln2mOeavxUaMY91KD9jHiHFgoeHi2DIARhseY8WxfXWH6mOsOHCRgeLY66IfZ3iMEse+KzpIH6PEgRWGiMPiQh9hePSPw24V2/fRPw6s1jwO64u79/DoHIfPyjXuo3Mc2KhtHJ4XdNfh0TMO/9Vq2UfPOLCLhnG4XcR3t/chj+umWxzOZfTuo1sc2FGrOEI2lMbDo08cUU815h9p00efOHzMyzj/8dKaxJHtYs12POt0iCNwQznz2QZ9dIjDx5KNo9nmUj4Onwt0+aoff2X14VE7jvxnP/8RnlE7Dh+XbhZtNpfCcWTbUNSt6g6PqnFkLmN+26J9VI0DDkrGkX9szO+h4vCoF0eVMub3U66PenE42PfHjbo/vBSLo9zF90At468UR60NRd1noT4qxeHAbguouLmUicPhgrNev4f7rzI8asRR5WwuV+I7qhGHA5+xX2tzKRBHgw3l5GPlHx7Z42hWxpNHTN5H9jgQKHUcLcfGk8fNPDzyxtG4jCePnraPvHFYy/CDQ4ZjOCNpHGkvJiM5v9+McbTfUI5l3lwyxmEtTxmTbMfzIF0c1hdQzpWYjirb8MgVR7az4y/VGcgVh7WcY2OS8NgSxTHmhnIs2+aSJQ7KmKTqI0scSChFHIyNY3mGR/zfss9QxrfPn+YffPfPvwaHs9TL1y8Oh8PN95vAY2j+t+z/t4yTWRx/KiqRu9v7qY9AwdtK7PA8U8ZFX2Mn9vxExhG7oSxf9ag+wp98pHhCamGvMtZ9/V5in0qHxWF6QexbxpZbbXd3ex81PGLiyPBzWi0hZ6zhtmIxNrbfdouozSUgjsANpa6QzcU7DspYzb+PhtsK9uIaB2NjI+fh4RcHZezCs48O28o4ZUzcvl+nOPL8YmPLP6TF/jvtMZ/z6REHG8rufDaX2tvKujLWDYA8Y2PicFWYx2EX+Jazc+lKZytj8vyV7Qs+bOPI81Rjbvl65yxjYnqGq24ruwzVJaueuYyD8eZi+BrSnBvKSQlfQ3qRnz9MEol/gTHSqrqtwAFxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQekXx9/inq7fwmBAAAAAElFTkSuQmCC">
+<title>체중감량 여정</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root{
+    --bg:#14201C; --surface:#1C2B25; --surface2:#26382E;
+    --text:#F1EDE1; --muted:#8FA08F; --coral:#FF7A59; --gold:#E8B84E;
+    --display:'Fraunces',serif; --body:'Manrope',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);min-height:100%;}
+  body{font-family:var(--body);color:var(--text);
+    padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);}
+  #app{max-width:480px;margin:0 auto;padding:24px 18px 48px;}
+
+  h1{font-family:var(--display);font-weight:600;font-size:22px;margin:8px 0 0;}
+  .muted{color:var(--muted);}
+  .row-between{display:flex;align-items:center;justify-content:space-between;}
+  .header-top{display:flex;align-items:center;gap:8px;}
+
+  label.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+  label.field span{font-size:12px;color:var(--muted);}
+  input{background:var(--surface2);border:1px solid transparent;border-radius:10px;
+    padding:10px 12px;font-family:var(--mono);font-size:14px;color:var(--text);
+    outline:none;width:100%;color-scheme:dark;}
+
+  .btn-primary{background:var(--coral);color:#1B120D;border:none;border-radius:10px;
+    padding:12px 16px;font-family:var(--body);font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;width:100%;}
+  .btn-danger{background:transparent;color:#D97757;border:1px solid #D97757;border-radius:8px;
+    padding:8px 12px;font-size:12px;cursor:pointer;}
+  .icon-btn{background:var(--surface);border:none;border-radius:10px;width:36px;height:36px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:16px;}
+
+  .card{background:var(--surface);border-radius:16px;padding:14px 16px;margin-bottom:16px;}
+  .banner{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--coral);
+    border-radius:12px;padding:12px 14px;margin-bottom:16px;font-size:14px;}
+  .banner.gold{border-color:var(--gold);}
+
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;}
+  .stat-card{background:var(--surface);border-radius:12px;padding:12px 8px;text-align:center;}
+  .stat-label{font-size:11px;color:var(--muted);margin-bottom:4px;}
+  .stat-value{font-family:var(--display);font-size:22px;line-height:1;}
+  .stat-value .unit{font-family:var(--body);font-size:12px;margin-left:2px;color:var(--muted);}
+  .stat-coral{color:var(--coral);} .stat-gold{color:var(--gold);}
+
+  .card-label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+
+  .history-list{display:flex;flex-direction:column;gap:1px;margin-top:8px;border-radius:12px;overflow:hidden;
+    max-height:280px;overflow-y:auto;}
+  .history-row{display:flex;justify-content:space-between;align-items:center;background:var(--surface);padding:10px 14px;}
+  .history-row .d{font-size:13px;color:var(--muted);}
+  .history-row .w{font-family:var(--mono);font-size:14px;}
+  .history-row .diff{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:8px;}
+  .diff-down{color:var(--coral);}
+
+  form.add-form{display:flex;gap:8px;margin-top:8px;}
+  form.add-form input[type=date]{flex:0 0 138px;}
+  form.add-form input[type=number]{flex:1;}
+  form.add-form button{width:48px;flex:0 0 48px;padding:0;}
+
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--surface2);
+    color:var(--text);border-radius:999px;padding:10px 16px;font-size:13px;
+    box-shadow:0 8px 24px rgba(0,0,0,.4);opacity:0;transition:opacity .25s;pointer-events:none;z-index:50;}
+  .toast.show{opacity:1;}
+
+  .pulse{animation:pulseRing 1.8s ease-out infinite;}
+  @keyframes pulseRing{0%{r:10;opacity:.9;}70%{r:16;opacity:0;}100%{r:16;opacity:0;}}
+
+  ::-webkit-scrollbar{width:6px;} ::-webkit-scrollbar-thumb{background:var(--surface2);border-radius:3px;}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ---------- storage ----------
+const K_SETUP = 'diet-journey-setup';
+const K_ENTRIES = 'diet-journey-entries';
+
+function loadSetup(){ try{ return JSON.parse(localStorage.getItem(K_SETUP)); }catch(e){ return null; } }
+function loadEntries(){ try{ return JSON.parse(localStorage.getItem(K_ENTRIES)) || []; }catch(e){ return []; } }
+function saveSetup(v){ localStorage.setItem(K_SETUP, JSON.stringify(v)); }
+function saveEntries(v){ localStorage.setItem(K_ENTRIES, JSON.stringify(v)); }
+
+let state = { setup: loadSetup(), entries: loadEntries() };
+
+// ---------- helpers ----------
+function todayStr(){
+  const d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function fmtDateKo(iso){
+  const d = new Date(iso+'T00:00:00');
+  const days=['일','월','화','수','목','금','토'];
+  return (d.getMonth()+1)+'월 '+d.getDate()+'일 ('+days[d.getDay()]+')';
+}
+function daysBetween(a,b){
+  const da=new Date(a+'T00:00:00'), db=new Date(b+'T00:00:00');
+  return Math.round((db-da)/86400000);
+}
+function clamp(n,min,max){ return Math.max(min,Math.min(max,n)); }
+function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function bez(t,p0,p1,p2,p3){
+  const mt=1-t;
+  const x = mt**3*p0[0] + 3*mt**2*t*p1[0] + 3*mt*t**2*p2[0] + t**3*p3[0];
+  const y = mt**3*p0[1] + 3*mt**2*t*p1[1] + 3*mt*t**2*p2[1] + t**3*p3[1];
+  return [x,y];
+}
+const P0=[30,34], P1=[260,8], P2=[520,196], P3=[770,168];
+const trailD = `M ${P0[0]} ${P0[1]} C ${P1[0]} ${P1[1]}, ${P2[0]} ${P2[1]}, ${P3[0]} ${P3[1]}`;
+
+function showToast(text){
+  const t = document.getElementById('toast');
+  t.textContent = text;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+// ---------- render ----------
+function render(){
+  const app = document.getElementById('app');
+  if(!state.setup){ app.innerHTML = renderOnboarding(); attachOnboardingHandlers(); return; }
+  app.innerHTML = renderDashboard();
+  attachDashboardHandlers();
+}
+
+function renderOnboarding(){
+  return `
+    <div style="text-align:center;margin-bottom:28px;padding-top:8px;">
+      <div style="font-size:30px;">⛰️</div>
+      <h1>체중감량 여정</h1>
+      <p class="muted" style="font-size:14px;margin-top:6px;">시작 체중과 목표 체중을 입력하고 여정을 시작해요</p>
+    </div>
+    <form id="onboard-form">
+      <label class="field"><span>시작 체중 (kg)</span>
+        <input type="number" step="0.1" inputmode="decimal" id="ob-start" placeholder="예: 68.5" required>
+      </label>
+      <label class="field"><span>목표 체중 (kg)</span>
+        <input type="number" step="0.1" inputmode="decimal" id="ob-goal" placeholder="예: 58.0" required>
+      </label>
+      <label class="field"><span>시작일</span>
+        <input type="date" id="ob-date" value="${todayStr()}" required>
+      </label>
+      <button type="submit" class="btn-primary">🥾 여정 시작하기</button>
+    </form>
+  `;
+}
+
+function attachOnboardingHandlers(){
+  document.getElementById('onboard-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const s = parseFloat(document.getElementById('ob-start').value);
+    const g = parseFloat(document.getElementById('ob-goal').value);
+    const date = document.getElementById('ob-date').value;
+    if(!s || !g || !date || s<=g){ showToast('시작 체중이 목표 체중보다 커야 해요'); return; }
+    state.setup = { startWeight:s, goalWeight:g, startDate:date };
+    state.entries = [{ date, weight:s }];
+    saveSetup(state.setup); saveEntries(state.entries);
+    render();
+  });
+}
+
+function computeDerived(){
+  const setup = state.setup;
+  const sorted = [...state.entries].sort((a,b)=>a.date.localeCompare(b.date));
+  const currentWeight = sorted.length ? sorted[sorted.length-1].weight : setup.startWeight;
+  const totalToLose = Math.max(setup.startWeight - setup.goalWeight, 0.1);
+  const lostSoFar = setup.startWeight - currentWeight;
+  const progressPct = clamp((lostSoFar/totalToLose)*100, 0, 100);
+  const remaining = Math.max(currentWeight - setup.goalWeight, 0);
+  const dayCount = daysBetween(setup.startDate, todayStr()) + 1;
+
+  const dateSet = new Set(sorted.map(e=>e.date));
+  let streak = 0, cursor = new Date();
+  while(true){
+    const iso = cursor.getFullYear()+'-'+String(cursor.getMonth()+1).padStart(2,'0')+'-'+String(cursor.getDate()).padStart(2,'0');
+    if(dateSet.has(iso)){ streak++; cursor.setDate(cursor.getDate()-1); } else break;
+  }
+
+  let milestoneHit = null;
+  if(sorted.length>=2){
+    const prevWeight = sorted[sorted.length-2].weight;
+    const prevPct = clamp(((setup.startWeight-prevWeight)/totalToLose)*100,0,100);
+    for(const m of [25,50,75,100]){ if(prevPct<m && progressPct>=m){ milestoneHit=m; break; } }
+  }
+
+  let message;
+  if(progressPct>=100) message = {icon:'🏆', text:'목표 체중 달성! 정말 대단해요 🎉', tone:'gold'};
+  else if(milestoneHit) message = {icon:'✨', text:milestoneHit+'% 지점 통과! 이 페이스 그대로예요', tone:'gold'};
+  else if(!sorted.length) message = {icon:'🥾', text:'오늘 체중을 기록하고 여정을 시작해보세요', tone:'coral'};
+  else if(lostSoFar<=0) message = {icon:'📉', text:'오늘은 정체기일 수 있어요. 내일 다시 기록해봐요', tone:''};
+  else if(streak>=3) message = {icon:'🚩', text:streak+'일 연속 기록 중! 목표까지 '+remaining.toFixed(1)+'kg 남았어요', tone:'coral'};
+  else message = {icon:'📉', text:'지금까지 '+lostSoFar.toFixed(1)+'kg 감량했어요. 계속 가봐요', tone:'coral'};
+
+  return { sorted, currentWeight, totalToLose, lostSoFar, progressPct, remaining, dayCount, streak, message };
+}
+
+function renderDashboard(){
+  const setup = state.setup;
+  const d = computeDerived();
+  const trailPoint = bez(d.progressPct/100, P0,P1,P2,P3);
+  const milestonePts = [0,25,50,75,100].map(m=>({m,pt:bez(m/100,P0,P1,P2,P3)}));
+
+  const milestoneCircles = milestonePts.map(({m,pt})=>{
+    const filled = d.progressPct>=m;
+    let trophy = '';
+    if(m===100) trophy = `<text x="${pt[0]+9}" y="${pt[1]-14}" font-size="14">🏆</text>`;
+    return `<circle cx="${pt[0]}" cy="${pt[1]}" r="5" fill="${filled?'var(--gold)':'var(--surface2)'}" stroke="var(--bg)" stroke-width="2"/>${trophy}`;
+  }).join('');
+
+  const dashOffset = 1000 - (1000*d.progressPct)/100;
+
+  // chart
+  let chartSvg = '';
+  if(d.sorted.length>1){
+    const W=290,H=110,pad=6;
+    const weights = d.sorted.map(e=>e.weight);
+    const yMin = Math.floor(Math.min(setup.goalWeight, ...weights) - 1);
+    const yMax = Math.ceil(Math.max(setup.startWeight, ...weights) + 1);
+    const n = d.sorted.length;
+    const pts = d.sorted.map((e,i)=>{
+      const x = pad + (i/(n-1)) * (W-pad*2);
+      const y = pad + (1 - (e.weight-yMin)/(yMax-yMin)) * (H-pad*2);
+      return [x,y];
+    });
+    const goalY = pad + (1 - (setup.goalWeight-yMin)/(yMax-yMin)) * (H-pad*2);
+    const polyline = pts.map(p=>p[0]+','+p[1]).join(' ');
+    const dots = pts.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="2.5" fill="var(--coral)"/>`).join('');
+    chartSvg = `
+      <div class="card">
+        <div class="card-label">체중 변화</div>
+        <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;margin-top:6px;display:block;">
+          <line x1="0" y1="${goalY}" x2="${W}" y2="${goalY}" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 3"/>
+          <polyline points="${polyline}" fill="none" stroke="var(--coral)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+          ${dots}
+        </svg>
+        <div class="row-between" style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:2px;">
+          <span>${fmtDateKo(d.sorted[0].date).split(' ')[0]}</span>
+          <span style="color:var(--gold);">목표 ${setup.goalWeight}kg</span>
+          <span>${fmtDateKo(d.sorted[n-1].date).split(' ')[0]}</span>
+        </div>
+      </div>`;
+  }
+
+  const historyRows = [...d.sorted].reverse().map((e,i,arr)=>{
+    const older = arr[i+1];
+    const diff = older ? +(e.weight-older.weight).toFixed(1) : null;
+    const diffHtml = diff!=null
+      ? `<span class="diff ${diff<0?'diff-down':''}">${diff<0?'▼':diff>0?'▲':'–'} ${Math.abs(diff)}</span>`
+      : '';
+    return `<div class="history-row">
+      <span class="d">${fmtDateKo(e.date)}</span>
+      <div style="display:flex;align-items:center;">
+        <span class="w">${e.weight.toFixed(1)}kg</span>${diffHtml}
+      </div>
+    </div>`;
+  }).join('');
+
+  return `
+    <div class="row-between" style="margin-bottom:18px;">
+      <div>
+        <div class="header-top">
+          <span style="font-size:18px;">⛰️</span>
+          <h1 style="margin:0;">체중감량 여정</h1>
+        </div>
+        <div class="muted" style="font-size:13px;margin-top:4px;">${d.dayCount}일째 · ${fmtDateKo(setup.startDate)} 시작</div>
+      </div>
+      <button class="icon-btn" id="settings-btn">⚙️</button>
+    </div>
+
+    <div id="settings-panel" style="display:none;" class="card">
+      <div class="muted" style="font-size:13px;margin-bottom:10px;">시작 ${setup.startWeight}kg → 목표 ${setup.goalWeight}kg</div>
+      <button class="btn-danger" id="reset-btn">✕ 여정 초기화</button>
+    </div>
+
+    <div class="banner ${d.message.tone==='gold'?'gold':''}">
+      <span style="font-size:16px;">${d.message.icon}</span>
+      <span>${d.message.text}</span>
+    </div>
+
+    <div class="card">
+      <svg viewBox="0 0 800 220" style="width:100%;height:auto;display:block;">
+        <path d="${trailD}" fill="none" stroke="var(--surface2)" stroke-width="10" stroke-linecap="round"/>
+        <path d="${trailD}" fill="none" stroke="var(--coral)" stroke-width="10" stroke-linecap="round"
+          stroke-dasharray="1000" stroke-dashoffset="${dashOffset}"/>
+        ${milestoneCircles}
+        <circle cx="${trailPoint[0]}" cy="${trailPoint[1]}" r="10" fill="var(--bg)" stroke="var(--coral)" stroke-width="3" class="pulse"/>
+        <circle cx="${trailPoint[0]}" cy="${trailPoint[1]}" r="4" fill="var(--coral)"/>
+      </svg>
+      <div class="row-between" style="font-family:var(--mono);font-size:12px;color:var(--muted);">
+        <span>${setup.startWeight}kg</span>
+        <span style="color:var(--gold);">목표 ${setup.goalWeight}kg</span>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-label">현재 체중</div><div class="stat-value">${d.currentWeight.toFixed(1)}<span class="unit">kg</span></div></div>
+      <div class="stat-card"><div class="stat-label">총 감량</div><div class="stat-value stat-coral">${d.lostSoFar.toFixed(1)}<span class="unit">kg</span></div></div>
+      <div class="stat-card"><div class="stat-label">목표까지</div><div class="stat-value stat-gold">${d.remaining.toFixed(1)}<span class="unit">kg</span></div></div>
+      <div class="stat-card"><div class="stat-label">진행률</div><div class="stat-value">${d.progressPct.toFixed(0)}<span class="unit">%</span></div></div>
+    </div>
+
+    ${chartSvg}
+
+    <div class="card">
+      <div class="card-label">오늘의 체중 기록</div>
+      <form class="add-form" id="entry-form">
+        <input type="date" id="entry-date" value="${todayStr()}">
+        <input type="number" step="0.1" inputmode="decimal" id="entry-weight" placeholder="체중 (kg)">
+        <button type="submit" class="btn-primary">+</button>
+      </form>
+    </div>
+
+    ${d.sorted.length ? `
+    <div class="card-label" style="margin-bottom:0;">기록</div>
+    <div class="history-list">${historyRows}</div>
+    ` : ''}
+  `;
+}
+
+function attachDashboardHandlers(){
+  document.getElementById('settings-btn').addEventListener('click', ()=>{
+    const p = document.getElementById('settings-panel');
+    p.style.display = p.style.display==='none' ? 'block' : 'none';
+  });
+  const resetBtn = document.getElementById('reset-btn');
+  if(resetBtn) resetBtn.addEventListener('click', ()=>{
+    if(!confirm('정말 초기화할까요? 모든 기록이 삭제됩니다.')) return;
+    localStorage.removeItem(K_SETUP); localStorage.removeItem(K_ENTRIES);
+    state = { setup:null, entries:[] };
+    render();
+  });
+  document.getElementById('entry-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const date = document.getElementById('entry-date').value;
+    const weight = parseFloat(document.getElementById('entry-weight').value);
+    if(!weight || !date){ showToast('체중을 입력해주세요'); return; }
+    state.entries = state.entries.filter(en=>en.date!==date);
+    state.entries.push({date, weight});
+    saveEntries(state.entries);
+    showToast('기록되었어요');
+    render();
+  });
+}
+
+render();
+</script>
+</body>
+</html>
