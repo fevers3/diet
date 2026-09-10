@@ -1,1 +1,771 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="마운자로여정">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAE/klEQVR4nO3dPXITWRSGYZmagJ8icU1AAFUsgIhiH2xjljTbmH1MEbEDEiInLmxCgqZsjVufptXd5/e+T2hbUrvv2+fKRsJXf75/ewBOeRZ9AMiLOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckP6IPgA8+vr3x/kHP/z1xf9IJlf8FwzhTjYx518JcURamMUxz0R4zhFmRRmrb7UOccTYssZufRBHgO2r69MHcXjba10d+iAOV/uuqHUfxAGJOPxYXOimw4M4IBEHJOJwYjf/7e6ZOCARByTigEQckIgDEnFAIg4ndi/Ssbtn4viP6zfX0YeQCHE8msqgjwfE4cdi/pu+pJQ4fjseGAyPCXEcDqdqMOpj3wvd+pXoxOFtrxV1eI8CccghYbe5bF9Xn3evjB7H+QJy9uH2vqbR4wi0bo093/E29NshFw6Gm+83pofBe2XTuWjLsO5jku1d9vwXDIkEdnDSoM85Ln2mOeavxUaMY91KD9jHiHFgoeHi2DIARhseY8WxfXWH6mOsOHCRgeLY66IfZ3iMEse+KzpIH6PEgRWGiMPiQh9hePSPw24V2/fRPw6s1jwO64u79/DoHIfPyjXuo3Mc2KhtHJ4XdNfh0TMO/9Vq2UfPOLCLhnG4XcR3t/chj+umWxzOZfTuo1sc2FGrOEI2lMbDo08cUU815h9p00efOHzMyzj/8dKaxJHtYs12POt0iCNwQznz2QZ9dIjDx5KNo9nmUj4Onwt0+aoff2X14VE7jvxnP/8RnlE7Dh+XbhZtNpfCcWTbUNSt6g6PqnFkLmN+26J9VI0DDkrGkX9szO+h4vCoF0eVMub3U66PenE42PfHjbo/vBSLo9zF90At468UR60NRd1noT4qxeHAbguouLmUicPhgrNev4f7rzI8asRR5WwuV+I7qhGHA5+xX2tzKRBHgw3l5GPlHx7Z42hWxpNHTN5H9jgQKHUcLcfGk8fNPDzyxtG4jCePnraPvHFYy/CDQ4ZjOCNpHGkvJiM5v9+McbTfUI5l3lwyxmEtTxmTbMfzIF0c1hdQzpWYjirb8MgVR7az4y/VGcgVh7WcY2OS8NgSxTHmhnIs2+aSJQ7KmKTqI0scSChFHIyNY3mGR/zfss9QxrfPn+YffPfPvwaHs9TL1y8Oh8PN95vAY2j+t+z/t4yTWRx/KiqRu9v7qY9AwdtK7PA8U8ZFX2Mn9vxExhG7oSxf9ag+wp98pHhCamGvMtZ9/V5in0qHxWF6QexbxpZbbXd3ex81PGLiyPBzWi0hZ6zhtmIxNrbfdouozSUgjsANpa6QzcU7DspYzb+PhtsK9uIaB2NjI+fh4RcHZezCs48O28o4ZUzcvl+nOPL8YmPLP6TF/jvtMZ/z6REHG8rufDaX2tvKujLWDYA8Y2PicFWYx2EX+Jazc+lKZytj8vyV7Qs+bOPI81Rjbvl65yxjYnqGq24ruwzVJaueuYyD8eZi+BrSnBvKSQlfQ3qRnz9MEol/gTHSqrqtwAFxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQekXx9/inq7fwmBAAAAAElFTkSuQmCC">
+<title>Mounjaro Journey</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
 
+  :root{
+    --bg:#EEF2EE; --surface:#FFFFFF; --border:#DCE5DE;
+    --ink:#1E2A24; --ink-muted:#5C6B62;
+    --primary:#3F6650; --primary-soft:#DCE9E0;
+    --secondary:#6B7FBE;
+    --accent:#B5613F;
+    --alert:#C0524A;
+    --display:'Fraunces',serif; --body:'IBM Plex Sans KR',sans-serif; --mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);min-height:100%;}
+  body{font-family:var(--body);color:var(--ink);
+    padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);}
+  #app{max-width:480px;margin:0 auto;position:relative;min-height:520px;}
+
+  input{width:100%;box-sizing:border-box;padding:10px 12px;margin-bottom:4px;
+    border-radius:10px;border:1px solid var(--border);background:#FBFCFB;
+    color:var(--ink);font-size:15px;font-family:var(--mono);outline:none;color-scheme:light;}
+  input.dark{border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.12);color:#fff;margin-bottom:14px;color-scheme:dark;}
+
+  .field-label{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--ink-muted);margin-bottom:5px;margin-top:2px;}
+  .field-label.dark{color:rgba(255,255,255,0.75);}
+
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:14px;}
+  .card-title{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:10px;}
+
+  .btn-primary{width:100%;padding:14px 0;border-radius:12px;border:none;background:var(--primary);
+    color:#fff;font-weight:700;font-size:15px;cursor:pointer;display:flex;align-items:center;
+    justify-content:center;gap:6px;margin-top:4px;margin-bottom:20px;}
+  .btn-secondary{width:100%;padding:10px 0;border-radius:10px;border:1px solid var(--primary);background:#fff;
+    color:var(--primary);font-weight:600;font-size:13px;cursor:pointer;margin-top:6px;}
+  .btn-white{width:100%;margin-top:20px;padding:13px 0;border-radius:12px;border:none;background:#fff;
+    color:var(--primary);font-weight:600;font-size:15px;cursor:pointer;}
+  .btn-white:disabled{opacity:.5;}
+
+  .toggle-row{display:flex;gap:8px;margin-bottom:14px;}
+  .toggle-btn{flex:1;padding:9px 0;border-radius:10px;border:1px solid var(--border);
+    background:var(--surface);color:var(--ink-muted);font-weight:600;font-size:13px;cursor:pointer;}
+  .toggle-btn.active{border-color:var(--primary);background:var(--primary-soft);color:var(--primary);}
+
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+  .chip{padding:7px 14px;border-radius:20px;border:1px solid var(--border);background:var(--surface);
+    color:var(--ink-muted);font-size:13px;font-weight:600;cursor:pointer;}
+  .chip.active{color:#fff;}
+
+  .row-between{display:flex;justify-content:space-between;padding:6px 0;font-size:13px;}
+  .row-label{color:var(--ink-muted);}
+  .row-value{font-weight:600;font-family:var(--mono);}
+  .row-value.accent{color:var(--accent);}
+
+  .tabbar{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);
+    display:flex;padding:8px 4px 10px;max-width:480px;margin:0 auto;}
+  .tab-item{flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;
+    gap:3px;cursor:pointer;color:var(--ink-muted);padding:4px 0;}
+  .tab-item.active{color:var(--primary);}
+  .tab-item .ic{font-size:18px;line-height:1;}
+  .tab-item .lb{font-size:10.5px;font-weight:500;}
+  .tab-item.active .lb{font-weight:700;}
+
+  .dose-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px;
+    margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;}
+  .dose-del{background:none;border:none;color:var(--ink-muted);cursor:pointer;font-size:16px;}
+
+  .pin-dots{display:flex;gap:14px;margin-bottom:40px;}
+  .pin-dot{width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);transition:all .15s;}
+  .pin-dot.filled{background:#fff;border-color:#fff;}
+  .pin-dot.error{background:var(--alert);border-color:var(--alert);}
+
+  .numpad{display:grid;grid-template-columns:repeat(3,64px);gap:14px;}
+  .numkey{width:64px;height:64px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);
+    background:rgba(255,255,255,0.08);color:#fff;font-size:22px;font-family:var(--mono);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;}
+  .numkey:active{background:rgba(255,255,255,0.2);}
+
+  input::-webkit-calendar-picker-indicator{filter:invert(0);}
+  input.dark::-webkit-calendar-picker-indicator{filter:invert(1);}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+// ---------- keys ----------
+const K_SETTINGS='app-settings', K_DAILY='daily-logs', K_DOSE='dose-logs';
+const DOSE_OPTIONS=[2.5,5,7.5,10,12.5,15];
+const SITE_OPTIONS=['복부','허벅지','팔'];
+
+function lsGet(key){ try{ const v=localStorage.getItem(key); return v?JSON.parse(v):null; }catch(e){ return null; } }
+function lsSet(key,val){ localStorage.setItem(key, JSON.stringify(val)); }
+
+// ---------- helpers ----------
+function todayStr(){
+  const d=new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function fmtDate(s){ const [y,m,d]=s.split('-'); return Number(m)+'월 '+Number(d)+'일'; }
+function fmtDateFull(s){ return fmtDate(s)+' ('+fmtWeekday(s)+')'; }
+function fmtWeekday(s){ const days=['일','월','화','수','목','금','토']; return days[new Date(s).getDay()]; }
+function addDays(s,n){
+  const d=new Date(s+'T00:00:00'); d.setDate(d.getDate()+n);
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// ---------- state ----------
+let state = {
+  settings: lsGet(K_SETTINGS),
+  dailyLogs: lsGet(K_DAILY) || {},
+  doseLogs: lsGet(K_DOSE) || [],
+  unlocked: false,
+  pinBuffer: '',
+  pinDraft: '',
+  pinError: false,
+  setupStage: 'pin1', // pin1, pin2, goal
+  goalDraft: '',
+  startDraft: '',
+  tab: 'home',
+  selectedDate: todayStr(),
+  amInput: '', pmInput: '', exMinInput: '', exTypeInput: '',
+  saveFlash: false,
+  doseAmount: 2.5, doseSite: '복부', doseMemo: '', doseDate: todayStr(),
+  editingDoseId: null,
+  graphRange: 'week',
+  showPinSettings: false,
+};
+
+function loadDateInputs(){
+  const e = state.dailyLogs[state.selectedDate] || {};
+  state.amInput = e.am != null ? String(e.am) : '';
+  state.pmInput = e.pm != null ? String(e.pm) : '';
+  state.exMinInput = e.exerciseMin != null ? String(e.exerciseMin) : '';
+  state.exTypeInput = e.exerciseType || '';
+}
+loadDateInputs();
+
+// ---------- derived ----------
+function computeDerived(){
+  const sortedDates = Object.keys(state.dailyLogs).sort();
+  let latestWeight = null;
+  for(let i=sortedDates.length-1;i>=0;i--){
+    const e = state.dailyLogs[sortedDates[i]];
+    const v = e.pm!=null?e.pm:e.am;
+    if(v!=null){ latestWeight={value:v,date:sortedDates[i]}; break; }
+  }
+  const lastDose = state.doseLogs[0] || null;
+  const nextDoseDate = lastDose ? addDays(lastDose.date,7) : null;
+
+  const weekData = [];
+  for(let i=6;i>=0;i--){
+    const date = addDays(todayStr(),-i);
+    const e = state.dailyLogs[date] || {};
+    weekData.push({date, label: fmtWeekday(date), am: e.am!=null?e.am:null, pm: e.pm!=null?e.pm:null});
+  }
+
+  const monthData = [];
+  for(let w=7;w>=0;w--){
+    const weekVals=[];
+    for(let d=6;d>=0;d--){
+      const date = addDays(todayStr(), -(w*7+d));
+      const e = state.dailyLogs[date];
+      if(e){ const v=e.pm!=null?e.pm:e.am; if(v!=null) weekVals.push(v); }
+    }
+    const avg = weekVals.length ? weekVals.reduce((a,b)=>a+b,0)/weekVals.length : null;
+    monthData.push({label: fmtDate(addDays(todayStr(),-(w*7))), avg: avg!=null?Math.round(avg*10)/10:null});
+  }
+
+  let progressPct = 0;
+  if(state.settings && latestWeight!=null){
+    const {startWeight,goalWeight} = state.settings;
+    if(startWeight===goalWeight) progressPct=100;
+    else progressPct = Math.max(0,Math.min(100, ((startWeight-latestWeight.value)/(startWeight-goalWeight))*100));
+  }
+
+  return {sortedDates, latestWeight, lastDose, nextDoseDate, weekData, monthData, progressPct};
+}
+
+// ---------- persistence actions ----------
+function finishSetup(){
+  const gw = parseFloat(state.goalDraft), sw = parseFloat(state.startDraft);
+  if(!gw || !sw) return;
+  state.settings = {pin: state.pinDraft, goalWeight: gw, startWeight: sw};
+  lsSet(K_SETTINGS, state.settings);
+  state.unlocked = true;
+  render();
+}
+function saveDailyEntry(){
+  const entry = {
+    am: state.amInput!=='' ? parseFloat(state.amInput) : null,
+    pm: state.pmInput!=='' ? parseFloat(state.pmInput) : null,
+    exerciseMin: state.exMinInput!=='' ? parseInt(state.exMinInput) : null,
+    exerciseType: state.exTypeInput || null,
+  };
+  state.dailyLogs = {...state.dailyLogs, [state.selectedDate]: entry};
+  lsSet(K_DAILY, state.dailyLogs);
+  state.saveFlash = true;
+  render();
+  setTimeout(()=>{ state.saveFlash=false; render(); }, 1400);
+}
+function deleteDailyEntry(date){
+  if(!confirm(fmtDateFull(date)+' 기록을 삭제할까요?')) return;
+  const next = {...state.dailyLogs};
+  delete next[date];
+  state.dailyLogs = next;
+  lsSet(K_DAILY, state.dailyLogs);
+  if(state.selectedDate===date){ state.selectedDate = todayStr(); loadDateInputs(); }
+  render();
+}
+function editDailyEntry(date){
+  state.selectedDate = date;
+  loadDateInputs();
+  render();
+  const el = document.getElementById('rec-date');
+  if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+}
+function saveDose(){
+  if(state.editingDoseId){
+    state.doseLogs = state.doseLogs.map(d=> d.id===state.editingDoseId
+      ? {...d, date: state.doseDate, dose: state.doseAmount, site: state.doseSite, memo: state.doseMemo}
+      : d
+    ).sort((a,b)=> a.date<b.date?1:-1);
+    state.editingDoseId = null;
+  } else {
+    const entry = {id: Date.now(), date: state.doseDate, dose: state.doseAmount, site: state.doseSite, memo: state.doseMemo};
+    state.doseLogs = [entry, ...state.doseLogs].sort((a,b)=> a.date<b.date?1:-1);
+  }
+  lsSet(K_DOSE, state.doseLogs);
+  state.doseMemo = '';
+  render();
+}
+function editDose(id){
+  const d = state.doseLogs.find(x=>x.id===id);
+  if(!d) return;
+  state.editingDoseId = id;
+  state.doseDate = d.date;
+  state.doseAmount = d.dose;
+  state.doseSite = d.site;
+  state.doseMemo = d.memo || '';
+  render();
+  const el = document.getElementById('dose-date');
+  if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+}
+function cancelEditDose(){
+  state.editingDoseId = null;
+  state.doseMemo = '';
+  render();
+}
+function deleteDose(id){
+  if(!confirm('이 투여 기록을 삭제할까요?')) return;
+  state.doseLogs = state.doseLogs.filter(d=>d.id!==id);
+  lsSet(K_DOSE, state.doseLogs);
+  if(state.editingDoseId===id) state.editingDoseId=null;
+  render();
+}
+function updateGoal(gw, sw){
+  state.settings = {...state.settings, goalWeight: gw, startWeight: sw};
+  lsSet(K_SETTINGS, state.settings);
+  render();
+}
+function changePin(newPin){
+  state.settings = {...state.settings, pin: newPin};
+  lsSet(K_SETTINGS, state.settings);
+  render();
+}
+
+// ---------- pin handling ----------
+function handlePinDigit(digit){
+  if(!state.settings){
+    if(state.setupStage==='pin1'){
+      state.pinDraft = (state.pinDraft+digit).slice(0,4);
+      render();
+      if(state.pinDraft.length===4){
+        setTimeout(()=>{ state.pinBuffer=''; state.setupStage='pin2'; render(); },150);
+      }
+      return;
+    }
+    if(state.setupStage==='pin2'){
+      state.pinBuffer = (state.pinBuffer+digit).slice(0,4);
+      render();
+      if(state.pinBuffer.length===4){
+        if(state.pinBuffer===state.pinDraft){
+          setTimeout(()=>{ state.setupStage='goal'; render(); },150);
+        } else {
+          state.pinError = true; render();
+          setTimeout(()=>{ state.pinError=false; state.pinBuffer=''; state.pinDraft=''; state.setupStage='pin1'; render(); },500);
+        }
+      }
+      return;
+    }
+  } else {
+    state.pinBuffer = (state.pinBuffer+digit).slice(0,4);
+    render();
+    if(state.pinBuffer.length===4){
+      if(state.pinBuffer===state.settings.pin){
+        setTimeout(()=>{ state.unlocked=true; state.pinBuffer=''; render(); },120);
+      } else {
+        state.pinError = true; render();
+        setTimeout(()=>{ state.pinError=false; state.pinBuffer=''; render(); },500);
+      }
+    }
+  }
+}
+function handlePinDelete(){
+  if(!state.settings){
+    if(state.setupStage==='pin1') state.pinDraft = state.pinDraft.slice(0,-1);
+    else if(state.setupStage==='pin2') state.pinBuffer = state.pinBuffer.slice(0,-1);
+  } else {
+    state.pinBuffer = state.pinBuffer.slice(0,-1);
+  }
+  render();
+}
+
+// ---------- render ----------
+function render(){
+  const app = document.getElementById('app');
+  if(!state.unlocked){ app.innerHTML = renderLockScreen(); attachLockHandlers(); return; }
+  const d = computeDerived();
+  app.innerHTML = renderHeader(d) + `<div style="padding:0 16px 76px;">` + renderTab(d) + `</div>` + renderTabBar();
+  attachHandlers(d);
+  window.scrollTo(0,0);
+}
+
+function renderLockScreen(){
+  const settingsExist = !!state.settings;
+  if(!settingsExist && state.setupStage==='goal'){
+    return `
+    <div style="background:linear-gradient(160deg,#3F6650 0%,#2C4A3B 100%);min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;font-family:var(--body);color:#fff;">
+      <div style="width:100%;max-width:300px;">
+        <div style="display:flex;justify-content:center;margin-bottom:18px;font-size:30px;">⛰️</div>
+        <div style="font-family:var(--display);font-size:22px;text-align:center;margin-bottom:4px;">목표를 설정해주세요</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.7);text-align:center;margin-bottom:24px;">진행률 계산에 사용됩니다</div>
+        <label class="field-label dark">현재 몸무게 (kg)</label>
+        <input class="dark" type="number" inputmode="decimal" id="start-draft" value="${esc(state.startDraft)}" placeholder="예: 78.5">
+        <label class="field-label dark">목표 몸무게 (kg)</label>
+        <input class="dark" type="number" inputmode="decimal" id="goal-draft" value="${esc(state.goalDraft)}" placeholder="예: 68.0">
+        <button class="btn-white" id="finish-setup-btn" ${(!state.goalDraft||!state.startDraft)?'disabled':''}>시작하기</button>
+      </div>
+    </div>`;
+  }
+  const stageLabel = !settingsExist
+    ? (state.setupStage==='pin1' ? '사용할 PIN 4자리를 설정하세요' : 'PIN을 한번 더 입력하세요')
+    : 'PIN을 입력하세요';
+  const activeLen = !settingsExist
+    ? (state.setupStage==='pin1' ? state.pinDraft.length : state.pinBuffer.length)
+    : state.pinBuffer.length;
+
+  let dots = '';
+  for(let i=0;i<4;i++){
+    let cls='pin-dot';
+    if(i<activeLen) cls += state.pinError ? ' error' : ' filled';
+    else if(state.pinError) cls += '';
+    dots += `<div class="${cls}" style="${state.pinError?'border-color:var(--alert);':''}"></div>`;
+  }
+
+  const keys=['1','2','3','4','5','6','7','8','9','','0','del'];
+  let numpad='';
+  keys.forEach(k=>{
+    if(k==='') numpad += `<div></div>`;
+    else if(k==='del') numpad += `<button class="numkey" data-del="1">⌫</button>`;
+    else numpad += `<button class="numkey" data-digit="${k}">${k}</button>`;
+  });
+
+  return `
+    <div style="background:linear-gradient(160deg,#3F6650 0%,#2C4A3B 100%);min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;font-family:var(--body);color:#fff;">
+      <div style="display:flex;justify-content:center;margin-bottom:14px;opacity:.9;font-size:26px;">🔒</div>
+      <div style="font-family:var(--display);font-size:19px;margin-bottom:28px;text-align:center;">${stageLabel}</div>
+      <div class="pin-dots">${dots}</div>
+      <div class="numpad">${numpad}</div>
+    </div>`;
+}
+
+function attachLockHandlers(){
+  document.querySelectorAll('[data-digit]').forEach(b=>{
+    b.addEventListener('click', ()=>handlePinDigit(b.getAttribute('data-digit')));
+  });
+  const delBtn = document.querySelector('[data-del]');
+  if(delBtn) delBtn.addEventListener('click', handlePinDelete);
+
+  const sd = document.getElementById('start-draft');
+  const gd = document.getElementById('goal-draft');
+  if(sd) sd.addEventListener('input', e=>{ state.startDraft = e.target.value; syncFinishBtn(); });
+  if(gd) gd.addEventListener('input', e=>{ state.goalDraft = e.target.value; syncFinishBtn(); });
+  const fb = document.getElementById('finish-setup-btn');
+  if(fb) fb.addEventListener('click', finishSetup);
+}
+function syncFinishBtn(){
+  const fb = document.getElementById('finish-setup-btn');
+  if(fb) fb.disabled = !(state.goalDraft && state.startDraft);
+}
+
+function mountainProgressSvg(pct, start, goal){
+  const w=320,h=70;
+  const pathD = `M 8 14 L ${w*0.28} 46 L ${w*0.52} 24 L ${w*0.78} 54 L ${w-8} 60`;
+  const markerX = 8 + (w-16)*(pct/100);
+  const markerY = 14 + (60-14)*(pct/100);
+  return `
+    <div style="margin-top:16px;">
+      <svg viewBox="0 0 ${w} ${h}" width="100%" height="60" preserveAspectRatio="none">
+        <path d="${pathD}" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="${pathD}" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+          stroke-dasharray="400" stroke-dashoffset="${400-(400*pct)/100}"/>
+        <circle cx="${markerX}" cy="${markerY}" r="6" fill="#fff"/>
+      </svg>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.65);font-family:var(--mono);">
+        <span>시작 ${start}kg</span><span>${Math.round(pct)}%</span><span>목표 ${goal}kg</span>
+      </div>
+    </div>`;
+}
+
+function renderHeader(d){
+  const diff = d.latestWeight ? (d.latestWeight.value - state.settings.goalWeight) : null;
+  return `
+    <div style="background:var(--primary);color:#fff;padding:22px 20px 26px;border-bottom-left-radius:24px;border-bottom-right-radius:24px;max-width:480px;margin:0 auto;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,0.7);text-transform:uppercase;margin-bottom:10px;">
+        ⛰️ Mounjaro Journey
+      </div>
+      <div style="display:flex;align-items:flex-end;gap:10px;">
+        <span style="font-family:var(--display);font-size:40px;line-height:1;">${d.latestWeight ? d.latestWeight.value.toFixed(1) : '--'}</span>
+        <span style="font-size:15px;margin-bottom:5px;color:rgba(255,255,255,0.75);">kg</span>
+        ${diff!=null ? `<span style="margin-left:auto;margin-bottom:6px;font-family:var(--mono);font-size:13px;color:rgba(255,255,255,0.85);">목표까지 ${diff>0?diff.toFixed(1)+'kg':'달성!'}</span>` : ''}
+      </div>
+      ${mountainProgressSvg(d.progressPct, state.settings.startWeight, state.settings.goalWeight)}
+    </div>`;
+}
+
+function lineChartSvg(series, opts){
+  // series: [{label, values:[{key,val,color}]}]
+  const w=320,h=opts.height||160,padL=30,padR=6,padT=14,padB=20;
+  let allVals=[];
+  series.forEach(pt=> pt.values.forEach(v=>{ if(v.val!=null) allVals.push(v.val); }));
+  if(!allVals.length) return `<div style="text-align:center;color:var(--ink-muted);font-size:12px;padding:40px 0;">데이터가 없어요</div>`;
+  let yMin = Math.min(...allVals)-1, yMax = Math.max(...allVals)+1;
+  if(yMin===yMax){ yMin-=1; yMax+=1; }
+  const yMid = (yMin+yMax)/2;
+  const n = series.length;
+  const xFor = i => padL + (n<=1?0:(i/(n-1))*(w-padL-padR));
+  const yFor = v => padT + (1-(v-yMin)/(yMax-yMin))*(h-padT-padB);
+  const fmt1 = v => (Math.round(v*10)/10).toFixed(1);
+
+  const seriesKeys = {};
+  series.forEach(pt=>pt.values.forEach(v=>{ seriesKeys[v.key]=v.color; }));
+  const keyList = Object.keys(seriesKeys);
+  // vertical offsets so labels for different series don't overlap each other
+  const labelOffset = {};
+  keyList.forEach((k,idx)=>{ labelOffset[k] = idx===0 ? -8 : 14; });
+
+  let paths = '';
+  keyList.forEach(key=>{
+    const pts = [];
+    series.forEach((pt,i)=>{
+      const v = pt.values.find(vv=>vv.key===key);
+      if(v && v.val!=null) pts.push([xFor(i), yFor(v.val), v.val]);
+    });
+    if(pts.length){
+      const poly = pts.map(p=>p[0]+','+p[1]).join(' ');
+      const dots = pts.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="2.8" fill="${seriesKeys[key]}"/>`).join('');
+      const valueLabels = pts.map(p=>`<text x="${p[0]}" y="${p[1]+labelOffset[key]}" font-size="8.5" fill="${seriesKeys[key]}" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">${fmt1(p[2])}</text>`).join('');
+      paths += `<polyline points="${poly}" fill="none" stroke="${seriesKeys[key]}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>${dots}${valueLabels}`;
+    }
+  });
+
+  const labels = series.map((pt,i)=>`<text x="${xFor(i)}" y="${h-4}" font-size="9" fill="var(--ink-muted)" text-anchor="middle" font-family="IBM Plex Sans KR">${esc(pt.label)}</text>`).join('');
+
+  const yAxisLabels = `
+    <text x="${padL-6}" y="${yFor(yMax)+3}" font-size="9" fill="var(--ink-muted)" text-anchor="end" font-family="IBM Plex Mono">${fmt1(yMax)}</text>
+    <text x="${padL-6}" y="${yFor(yMid)+3}" font-size="9" fill="var(--ink-muted)" text-anchor="end" font-family="IBM Plex Mono">${fmt1(yMid)}</text>
+    <text x="${padL-6}" y="${yFor(yMin)+3}" font-size="9" fill="var(--ink-muted)" text-anchor="end" font-family="IBM Plex Mono">${fmt1(yMin)}</text>`;
+
+  return `<svg viewBox="0 0 ${w} ${h}" style="width:100%;height:auto;display:block;">
+    <line x1="${padL}" y1="${padT}" x2="${w-padR}" y2="${padT}" stroke="var(--border)" stroke-dasharray="2 3"/>
+    <line x1="${padL}" y1="${(padT+h-padB)/2}" x2="${w-padR}" y2="${(padT+h-padB)/2}" stroke="var(--border)" stroke-dasharray="2 3"/>
+    ${yAxisLabels}
+    ${paths}
+    ${labels}
+  </svg>`;
+}
+
+function renderTab(d){
+  switch(state.tab){
+    case 'home': return renderHome(d);
+    case 'record': return renderRecord(d);
+    case 'graph': return renderGraph(d);
+    case 'dose': return renderDose(d);
+    case 'settings': return renderSettings(d);
+    default: return '';
+  }
+}
+
+function renderLegend(items){
+  return `<div style="display:flex;gap:16px;justify-content:center;margin-top:8px;">
+    ${items.map(it=>`<div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--ink-muted);font-family:var(--body);">
+      <span style="width:9px;height:9px;border-radius:50%;background:${it.color};display:inline-block;"></span>${esc(it.label)}
+    </div>`).join('')}
+  </div>`;
+}
+
+function renderHome(d){
+  const series = d.weekData.map(w=>({label:w.label, values:[{key:'am',val:w.am,color:'#6B7FBE'},{key:'pm',val:w.pm,color:'#3F6650'}]}));
+  return `
+    <div style="margin-top:18px;">
+      <div class="card">
+        <div class="card-title">📈 최근 7일</div>
+        ${lineChartSvg(series,{height:150})}
+        ${renderLegend([{label:'아침',color:'#6B7FBE'},{label:'저녁',color:'#3F6650'}])}
+      </div>
+      <div class="card">
+        <div class="card-title">💉 마운자로 투여</div>
+        ${d.lastDose ? `
+          <div class="row-between"><span class="row-label">마지막 투여</span><span class="row-value">${fmtDateFull(d.lastDose.date)} · ${d.lastDose.dose}mg · ${d.lastDose.site}</span></div>
+          <div class="row-between"><span class="row-label">다음 예정일</span><span class="row-value accent">${fmtDateFull(d.nextDoseDate)}</span></div>
+        ` : `<div style="font-size:13px;color:var(--ink-muted);">아직 투여 기록이 없어요.</div>`}
+      </div>
+      <button class="btn-primary" id="go-record-btn">오늘 기록하기 ›</button>
+    </div>`;
+}
+
+function renderRecord(d){
+  return `
+    <div style="margin-top:18px;">
+      <div class="card">
+        <div class="card-title">날짜</div>
+        <input type="date" id="rec-date" max="${todayStr()}" value="${state.selectedDate}">
+      </div>
+      <div class="card">
+        <div class="card-title">⚖️ 체중 (kg)</div>
+        <div style="display:flex;gap:10px;">
+          <div style="flex:1;">
+            <label class="field-label">🌅 아침</label>
+            <input type="number" inputmode="decimal" id="rec-am" value="${esc(state.amInput)}" placeholder="0.0">
+          </div>
+          <div style="flex:1;">
+            <label class="field-label">🌇 저녁</label>
+            <input type="number" inputmode="decimal" id="rec-pm" value="${esc(state.pmInput)}" placeholder="0.0">
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">🏋️ 운동</div>
+        <div style="display:flex;gap:10px;">
+          <div style="flex:1;">
+            <label class="field-label">시간 (분)</label>
+            <input type="number" inputmode="numeric" id="rec-exmin" value="${esc(state.exMinInput)}" placeholder="30">
+          </div>
+          <div style="flex:1.4;">
+            <label class="field-label">종류</label>
+            <input type="text" id="rec-extype" value="${esc(state.exTypeInput)}" placeholder="걷기, 웨이트…">
+          </div>
+        </div>
+      </div>
+      <button class="btn-primary" id="save-record-btn">${state.saveFlash ? '✓ 저장됨' : (state.dailyLogs[state.selectedDate] ? '수정 저장' : '저장하기')}</button>
+
+      <div style="font-size:13px;font-weight:600;margin:4px 4px 8px;color:var(--ink-muted);">기록 히스토리</div>
+      ${renderDailyHistory(d)}
+    </div>`;
+}
+
+function renderDailyHistory(d){
+  const dates = Object.keys(state.dailyLogs).sort((a,b)=> a<b?1:-1);
+  if(!dates.length) return `<div style="font-size:13px;color:var(--ink-muted);padding:0 4px;">기록이 없습니다.</div>`;
+  return dates.map(date=>{
+    const e = state.dailyLogs[date];
+    const parts = [];
+    if(e.am!=null) parts.push('아침 '+e.am+'kg');
+    if(e.pm!=null) parts.push('저녁 '+e.pm+'kg');
+    if(e.exerciseMin!=null) parts.push('운동 '+e.exerciseMin+'분'+(e.exerciseType?' ('+esc(e.exerciseType)+')':''));
+    const summary = parts.length ? parts.join(' · ') : '기록 없음';
+    const active = date===state.selectedDate;
+    return `
+    <div class="dose-item" style="${active?'border-color:var(--primary);background:var(--primary-soft);':''}">
+      <div>
+        <div style="font-size:14px;font-weight:600;">${fmtDateFull(date)}</div>
+        <div style="font-size:12px;color:var(--ink-muted);">${summary}</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <button class="dose-del" data-edit-daily="${date}" title="수정">✏️</button>
+        <button class="dose-del" data-del-daily="${date}" title="삭제">🗑</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderGraph(d){
+  let chart, legend;
+  if(state.graphRange==='week'){
+    const series = d.weekData.map(w=>({label:w.label, values:[{key:'am',val:w.am,color:'#6B7FBE'},{key:'pm',val:w.pm,color:'#3F6650'}]}));
+    chart = lineChartSvg(series,{height:220});
+    legend = renderLegend([{label:'아침',color:'#6B7FBE'},{label:'저녁',color:'#3F6650'}]);
+  } else {
+    const series = d.monthData.map(m=>({label:m.label, values:[{key:'avg',val:m.avg,color:'#3F6650'}]}));
+    chart = lineChartSvg(series,{height:220});
+    legend = renderLegend([{label:'주간 평균',color:'#3F6650'}]);
+  }
+  return `
+    <div style="margin-top:18px;">
+      <div class="toggle-row">
+        <button class="toggle-btn ${state.graphRange==='week'?'active':''}" id="range-week">주간</button>
+        <button class="toggle-btn ${state.graphRange==='month'?'active':''}" id="range-month">월간</button>
+      </div>
+      <div class="card">${chart}${legend}</div>
+      <div style="font-size:12px;color:var(--ink-muted);text-align:center;margin-top:6px;">
+        시작 ${state.settings.startWeight}kg → 목표 ${state.settings.goalWeight}kg
+      </div>
+    </div>`;
+}
+
+function renderDose(d){
+  const chips = DOSE_OPTIONS.map(v=>`<button class="chip ${state.doseAmount===v?'active':''}" data-dose="${v}" style="${state.doseAmount===v?'background:var(--accent);border-color:var(--accent);':''}">${v}mg</button>`).join('');
+  const sites = SITE_OPTIONS.map(s=>`<button class="chip ${state.doseSite===s?'active':''}" data-site="${s}" style="${state.doseSite===s?'background:var(--accent);border-color:var(--accent);':''}">${s}</button>`).join('');
+  const history = state.doseLogs.length ? state.doseLogs.map(dd=>`
+    <div class="dose-item" style="${state.editingDoseId===dd.id?'border-color:var(--accent);background:#F3E3DC;':''}">
+      <div>
+        <div style="font-size:14px;font-weight:600;">${fmtDateFull(dd.date)} · ${dd.dose}mg</div>
+        <div style="font-size:12px;color:var(--ink-muted);">${dd.site}${dd.memo?' · '+esc(dd.memo):''}</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <button class="dose-del" data-edit-dose="${dd.id}" title="수정">✏️</button>
+        <button class="dose-del" data-del-dose="${dd.id}" title="삭제">🗑</button>
+      </div>
+    </div>`).join('') : `<div style="font-size:13px;color:var(--ink-muted);padding:0 4px;">기록이 없습니다.</div>`;
+
+  return `
+    <div style="margin-top:18px;">
+      <div class="card">
+        <div class="card-title">💉 ${state.editingDoseId ? '투여 기록 수정' : '투여 기록 추가'}</div>
+        <label class="field-label">날짜</label>
+        <input type="date" id="dose-date" max="${todayStr()}" value="${state.doseDate}">
+        <label class="field-label">용량 (mg)</label>
+        <div class="chip-row">${chips}</div>
+        <label class="field-label">투여 부위</label>
+        <div class="chip-row">${sites}</div>
+        <label class="field-label">메모 (선택)</label>
+        <input type="text" id="dose-memo" value="${esc(state.doseMemo)}" placeholder="부작용, 컨디션 등">
+        <button class="btn-primary" id="save-dose-btn" style="background:var(--accent);margin-top:4px;">${state.editingDoseId ? '✓ 수정 저장' : '+ 투여 기록 저장'}</button>
+        ${state.editingDoseId ? `<button class="btn-secondary" id="cancel-edit-dose-btn">수정 취소</button>` : ''}
+      </div>
+      ${d.nextDoseDate ? `<div class="card"><div class="row-between"><span class="row-label">다음 투여 예정일</span><span class="row-value accent">${fmtDateFull(d.nextDoseDate)}</span></div></div>` : ''}
+      <div style="font-size:13px;font-weight:600;margin:18px 4px 8px;color:var(--ink-muted);">투여 히스토리</div>
+      ${history}
+    </div>`;
+}
+
+function renderSettings(d){
+  return `
+    <div style="margin-top:18px;">
+      <div class="card">
+        <div class="card-title">⚙️ 목표 설정</div>
+        <label class="field-label">시작 체중 (kg)</label>
+        <input type="number" inputmode="decimal" id="set-start" value="${state.settings.startWeight}">
+        <label class="field-label">목표 체중 (kg)</label>
+        <input type="number" inputmode="decimal" id="set-goal" value="${state.settings.goalWeight}">
+        <button class="btn-secondary" id="save-goal-btn">저장</button>
+      </div>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer;" id="toggle-pin-settings">
+          <div class="card-title" style="margin-bottom:0;">🔒 PIN 변경</div>
+          <span>${state.showPinSettings ? '🙈' : '👁'}</span>
+        </div>
+        ${state.showPinSettings ? `
+          <input type="password" inputmode="numeric" maxlength="4" id="new-pin" placeholder="새 PIN 4자리" style="margin-top:12px;">
+          <button class="btn-secondary" id="save-pin-btn">PIN 저장</button>
+        ` : ''}
+      </div>
+      <button class="btn-primary" id="lock-btn" style="background:var(--ink-muted);">🔒 잠그기</button>
+    </div>`;
+}
+
+function renderTabBar(){
+  const items = [
+    {id:'home',label:'홈',icon:'🏠'},
+    {id:'record',label:'기록',icon:'⚖️'},
+    {id:'graph',label:'그래프',icon:'📈'},
+    {id:'dose',label:'투여',icon:'💉'},
+    {id:'settings',label:'설정',icon:'⚙️'},
+  ];
+  return `<div class="tabbar">${items.map(it=>`
+    <button class="tab-item ${state.tab===it.id?'active':''}" data-tab="${it.id}">
+      <span class="ic">${it.icon}</span><span class="lb">${it.label}</span>
+    </button>`).join('')}</div>`;
+}
+
+function attachHandlers(d){
+  document.querySelectorAll('[data-tab]').forEach(b=>{
+    b.addEventListener('click', ()=>{ state.tab = b.getAttribute('data-tab'); if(state.tab==='record') loadDateInputs(); render(); });
+  });
+
+  // home
+  const goRec = document.getElementById('go-record-btn');
+  if(goRec) goRec.addEventListener('click', ()=>{ state.tab='record'; loadDateInputs(); render(); });
+
+  // record
+  const recDate = document.getElementById('rec-date');
+  if(recDate) recDate.addEventListener('change', e=>{ state.selectedDate=e.target.value; loadDateInputs(); render(); });
+  const recAm = document.getElementById('rec-am');
+  if(recAm) recAm.addEventListener('input', e=>{ state.amInput=e.target.value; });
+  const recPm = document.getElementById('rec-pm');
+  if(recPm) recPm.addEventListener('input', e=>{ state.pmInput=e.target.value; });
+  const recExMin = document.getElementById('rec-exmin');
+  if(recExMin) recExMin.addEventListener('input', e=>{ state.exMinInput=e.target.value; });
+  const recExType = document.getElementById('rec-extype');
+  if(recExType) recExType.addEventListener('input', e=>{ state.exTypeInput=e.target.value; });
+  const saveRecBtn = document.getElementById('save-record-btn');
+  if(saveRecBtn) saveRecBtn.addEventListener('click', saveDailyEntry);
+  document.querySelectorAll('[data-edit-daily]').forEach(b=>{
+    b.addEventListener('click', ()=>editDailyEntry(b.getAttribute('data-edit-daily')));
+  });
+  document.querySelectorAll('[data-del-daily]').forEach(b=>{
+    b.addEventListener('click', ()=>deleteDailyEntry(b.getAttribute('data-del-daily')));
+  });
+
+  // graph
+  const rw = document.getElementById('range-week');
+  if(rw) rw.addEventListener('click', ()=>{ state.graphRange='week'; render(); });
+  const rm = document.getElementById('range-month');
+  if(rm) rm.addEventListener('click', ()=>{ state.graphRange='month'; render(); });
+
+  // dose
+  document.querySelectorAll('[data-dose]').forEach(b=>{
+    b.addEventListener('click', ()=>{ state.doseAmount=parseFloat(b.getAttribute('data-dose')); render(); });
+  });
+  document.querySelectorAll('[data-site]').forEach(b=>{
+    b.addEventListener('click', ()=>{ state.doseSite=b.getAttribute('data-site'); render(); });
+  });
+  const doseDate = document.getElementById('dose-date');
+  if(doseDate) doseDate.addEventListener('change', e=>{ state.doseDate=e.target.value; });
+  const doseMemo = document.getElementById('dose-memo');
+  if(doseMemo) doseMemo.addEventListener('input', e=>{ state.doseMemo=e.target.value; });
+  const saveDoseBtn = document.getElementById('save-dose-btn');
+  if(saveDoseBtn) saveDoseBtn.addEventListener('click', saveDose);
+  const cancelEditDoseBtn = document.getElementById('cancel-edit-dose-btn');
+  if(cancelEditDoseBtn) cancelEditDoseBtn.addEventListener('click', cancelEditDose);
+  document.querySelectorAll('[data-edit-dose]').forEach(b=>{
+    b.addEventListener('click', ()=>editDose(Number(b.getAttribute('data-edit-dose'))));
+  });
+  document.querySelectorAll('[data-del-dose]').forEach(b=>{
+    b.addEventListener('click', ()=>deleteDose(Number(b.getAttribute('data-del-dose'))));
+  });
+
+  // settings
+  const saveGoalBtn = document.getElementById('save-goal-btn');
+  if(saveGoalBtn) saveGoalBtn.addEventListener('click', ()=>{
+    const gw = parseFloat(document.getElementById('set-goal').value);
+    const sw = parseFloat(document.getElementById('set-start').value);
+    if(gw && sw) updateGoal(gw, sw);
+  });
+  const togglePin = document.getElementById('toggle-pin-settings');
+  if(togglePin) togglePin.addEventListener('click', ()=>{ state.showPinSettings=!state.showPinSettings; render(); });
+  const savePinBtn = document.getElementById('save-pin-btn');
+  if(savePinBtn) savePinBtn.addEventListener('click', ()=>{
+    const np = document.getElementById('new-pin').value.replace(/\D/g,'').slice(0,4);
+    if(np.length===4) changePin(np);
+  });
+  const lockBtn = document.getElementById('lock-btn');
+  if(lockBtn) lockBtn.addEventListener('click', ()=>{ state.unlocked=false; state.pinBuffer=''; render(); });
+}
+
+render();
+</script>
+</body>
+</html>
